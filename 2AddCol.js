@@ -1,8 +1,11 @@
 // the purpose of this file is to add the columns necessary for my analysis
 const dfd = require("danfojs-node");
 
+var inputFileName = "1.SortCol/Aug2021_colsort.csv";
+var outputFileName = "2.AddCol/Aug2021_addcol.csv";
+
 dfd
-  .read_csv("1.SortCol/May2021_colsort.csv")
+  .read_csv(inputFileName)
   .then((df) => {
     /*
     CREATE vol_oi COLUMN
@@ -74,7 +77,10 @@ dfd
     /*
     OUTPUT AS CSV FILE
     */
-    df.to_csv("2.AddCol/May2021_addcol.csv").catch((err) => {
+    df
+    .to_csv(outputFileName)
+    .then(console.log("Column added, output file: %s, input file: %s", outputFileName, inputFileName))
+    .catch((err) => {
       console.log(err);
     });
   })

@@ -1,6 +1,9 @@
 // this file divides the alerts into buckets of equal size by each variable and calculates the probablility of winning in that bucket
 const dfd = require("danfojs-node");
 
+var inputFileName = "3.Concat/jan_aug_put_with_winner.csv";
+var outputFileName = "5.WinProb/WinProbPut-jan_aug.csv";
+
 const returnBucketIndices = (numOfAlerts, numOfBuckets) => {
   const bucketSize = Math.ceil(numOfAlerts / numOfBuckets);
 
@@ -30,8 +33,7 @@ const returnBucketIndices = (numOfAlerts, numOfBuckets) => {
 };
 
 dfd
-  //.read_csv("3.Concat/May2021_put_with_winner.csv")
-  .read_csv("3.Concat/May2021_call_with_winner.csv") //Activate if CALL data is needed, disable PUT above
+  .read_csv(inputFileName)
   .then((df) => {
     // MAKE SURE THESE VARIABLES ARE CORRECT BEFORE RUNNING
     // const optionType = "call";
@@ -194,8 +196,8 @@ dfd
     OUTPUT AS CSV FILE
     */
     dfOutput
-    //.to_csv("5.WinProb/WinProbPut-May2021.csv")
-    .to_csv("5.WinProb/WinProbCall-May2021.csv") //Activate if CALL data is needed, disable PUT above
+    .to_csv(outputFileName)
+    .then(console.log("Processed, output file: %s, input file: %s", outputFileName, inputFileName))
     .catch((err) => {
       console.log(err);
     });

@@ -1,8 +1,11 @@
 // this file sorts the columns so that all of the files can be concatenated later
 const dfd = require("danfojs-node");
 
+var inputFileName = "0.Raw/Aug2021.csv";
+var outputFileName = "1.SortCol/Aug2021_colsort.csv";
+
 dfd
-  .read_csv("0.Raw/May2021.csv")
+  .read_csv(inputFileName)
   .then((df) => {
     let temp = {};
 
@@ -117,7 +120,10 @@ dfd
     /*
     OUTPUT AS CSV FILE
     */
-    df.to_csv("1.SortCol/May2021_colsort.csv").catch((err) => {
+    df
+    .to_csv(outputFileName)
+    .then(console.log("Conversion complete, output file: %s, input file: %s", outputFileName, inputFileName))
+    .catch((err) => {
       console.log(err);
     });
   })

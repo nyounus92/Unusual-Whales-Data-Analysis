@@ -2,8 +2,11 @@
 const dfd = require("danfojs-node");
 const ttest = require("ttest");
 
+var inputFileName = "3.Concat/jan_aug_concat.csv";
+var outputFileName = "4.Sig/pVal-put-jan_aug.csv";
+
 dfd
-  .read_csv("3.Concat/May2021_concat.csv")
+  .read_csv(inputFileName)
   .then((df) => {
     // MAKE SURE THESE VARIABLES ARE CORRECT BEFORE RUNNING
     const optionType = "put";
@@ -96,7 +99,8 @@ dfd
     */
     // change file name
     dfOutput
-    .to_csv("4.Sig/pVal-put-May2021.csv")
+    .to_csv(outputFileName)
+    .then(console.log("Puts processed, output file: %s, input file: %s", outputFileName, inputFileName))
     .catch((err) => {
       console.log(err);
     });
