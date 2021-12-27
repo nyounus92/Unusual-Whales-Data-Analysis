@@ -2,7 +2,7 @@
 const dfd = require("danfojs-node");
 
 dfd
-  .read_csv("1.SortCol/06.may21_colsort.csv")
+  .read_csv("1.SortCol/May2021_colsort.csv")
   .then((df) => {
     /*
     CREATE vol_oi COLUMN
@@ -74,7 +74,7 @@ dfd
     /*
     OUTPUT AS CSV FILE
     */
-    df.to_csv("2.AddCol/06.may21_addcol.csv").catch((err) => {
+    df.to_csv("2.AddCol/May2021_addcol.csv").catch((err) => {
       console.log(err);
     });
   })

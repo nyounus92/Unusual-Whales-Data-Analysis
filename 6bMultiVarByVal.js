@@ -29,7 +29,7 @@ const returnBucketIndices = (numOfAlerts, numOfBuckets) => {
 };
 
 dfd
-  .read_csv("3.Concat/dec20_to_may21_call_with_winner.csv")
+  .read_csv("3.Concat/May2021_call_with_winner.csv")
   .then((df) => {
     // MAKE SURE THESE VARIABLES ARE CORRECT BEFORE RUNNING
     const testingSlice = { var: "gamma", lower: 0.08, upper: 0.09 };
@@ -193,7 +193,7 @@ dfd
     OUTPUT AS CSV FILE
     */
     dfOutput
-      .to_csv("6.MultiVar/gamma_0.08-0.09_call_by_val_dec20_may21v2.csv")
+      .to_csv("6.MultiVar/gamma_0.08-0.09_call_by_val_May2021.csv")
       .catch((err) => {
         console.log(err);
       });

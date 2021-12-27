@@ -3,7 +3,7 @@ const dfd = require("danfojs-node");
 const ttest = require("ttest");
 
 dfd
-  .read_csv("3.Concat/dec20_to_mar21.csv")
+  .read_csv("3.Concat/May2021_concat.csv")
   .then((df) => {
     // MAKE SURE THESE VARIABLES ARE CORRECT BEFORE RUNNING
     const optionType = "call";
@@ -90,7 +90,7 @@ dfd
     */
     // change file name
     dfOutput
-      .to_csv("4.Sig/pVal-call-dec20-to-mar21-against-overall.csv")
+      .to_csv("4.Sig/pVal-call-May2021.csv")
       .catch((err) => {
         console.log(err);
       });

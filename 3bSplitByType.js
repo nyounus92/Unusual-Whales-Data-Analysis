@@ -2,10 +2,11 @@
 const dfd = require("danfojs-node");
 
 dfd
-  .read_csv("3.Concat/dec20_to_may21.csv")
+  .read_csv("3.Concat/May2021_concat.csv")
   .then((df) => {
     // MAKE SURE THESE VARIABLES ARE CORRECT BEFORE RUNNING
-    const optionType = "put";
+    //const optionType = "put";
+    const optionType = "call"; //activate if you want to output calls, disable PUT above
     const winDefinition = [10, 25, 50, 75, 100];
 
     /*
@@ -33,7 +34,8 @@ dfd
     OUTPUT AS CSV FILE
     */
     dfOptionType
-      .to_csv("3.Concat/dec20_to_may21_put_with_winner.csv")
+      //.to_csv("3.Concat/May2021_put_with_winner.csv")
+      .to_csv("3.Concat/May2021_call_with_winner.csv") //activate to get CALL data, disable PUT function above
       .catch((err) => {
         console.log(err);
       });

@@ -2,7 +2,7 @@
 const dfd = require("danfojs-node");
 
 dfd
-  .read_csv("3.Concat/dec20_to_may21_call_with_winner.csv")
+  .read_csv("3.Concat/May2021_call_with_winner.csv")
   .then((df) => {
     // MAKE SURE THESE VARIABLES ARE CORRECT BEFORE RUNNING
     const winDefinition = [10, 25, 50, 75, 100];
@@ -153,7 +153,7 @@ dfd
     OUTPUT AS CSV FILE
     */
     dfOutput
-      .to_csv("5.WinProb/WinProbCallGamma-dec20-may21v2.csv")
+      .to_csv("5.WinProb/WinProbCallGamma-May2021.csv")
       .catch((err) => {
         console.log(err);
       });

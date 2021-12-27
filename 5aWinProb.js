@@ -30,7 +30,8 @@ const returnBucketIndices = (numOfAlerts, numOfBuckets) => {
 };
 
 dfd
-  .read_csv("3.Concat/dec20_to_may21_put_with_winner.csv")
+  //.read_csv("3.Concat/May2021_put_with_winner.csv")
+  .read_csv("3.Concat/May2021_call_with_winner.csv") //Activate if CALL data is needed, disable PUT above
   .then((df) => {
     // MAKE SURE THESE VARIABLES ARE CORRECT BEFORE RUNNING
     // const optionType = "call";
@@ -192,7 +193,10 @@ dfd
     /*
     OUTPUT AS CSV FILE
     */
-    dfOutput.to_csv("5.WinProb/WinProbPut-dec21-may21.csv").catch((err) => {
+    dfOutput
+    //.to_csv("5.WinProb/WinProbPut-May2021.csv")
+    .to_csv("5.WinProb/WinProbCall-May2021.csv") //Activate if CALL data is needed, disable PUT above
+    .catch((err) => {
       console.log(err);
     });
   })
