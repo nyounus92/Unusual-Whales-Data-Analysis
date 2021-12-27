@@ -30,10 +30,12 @@ const returnBucketIndices = (numOfAlerts, numOfBuckets) => {
 };
 
 dfd
-  .read_csv("3.Concat/May2021_call_with_winner.csv")
+  //.read_csv("3.Concat/May2021_call_with_winner.csv")
+  .read_csv("3.Concat/May2021_put_with_winner.csv")
   .then((df) => {
+
     // MAKE SURE THESE VARIABLES ARE CORRECT BEFORE RUNNING
-    const testingSlice = { var: "buy_amount", istart: 0, iend: 1364 };
+    const testingSlice = { var: "buy_amount", istart: 0, iend: 1266 }; //ALWAYS CHECK THE LAST ROW
 
     const winDefinition = [10, 25, 50, 75, 100];
     const variables = [
@@ -56,6 +58,7 @@ dfd
     CREATE SLICE OF SPECIFIC BUCKET
     */
     df.sort_values({ by: testingSlice.var, inplace: true });
+
     df.reset_index(true);
     const subDF = df.iloc({
       rows: [`${testingSlice.istart}:${testingSlice.iend}`],
@@ -64,6 +67,7 @@ dfd
     subDF.to_csv("6.MultiVar/test2.csv").catch((err) => {
       console.log(err);
     });
+
     /*
     CALCULATE BUCKETS
     */
@@ -73,6 +77,7 @@ dfd
     /*
     MAIN LOOP FOR VARIABLES
     */
+
     const outputArr = []; // final output
     variables.forEach((currentVar) => {
       // create total row
@@ -177,7 +182,8 @@ dfd
     OUTPUT AS CSV FILE
     */
     dfOutput
-      .to_csv("6.MultiVar/buy_amount_13284-29860_call.csv")
+      //.to_csv("6.MultiVar/buy_amount_13284-29860_call.csv")
+      .to_csv("6.MultiVar/buy_amount_13284-29860_put.csv")
       .catch((err) => {
         console.log(err);
       });

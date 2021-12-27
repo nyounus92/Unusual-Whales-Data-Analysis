@@ -1,7 +1,8 @@
 const dfd = require("danfojs-node");
 
 dfd
-  .read_csv("3.Concat/May2021_put_with_winner.csv")
+  .read_csv("3.Concat/May2021_call_with_winner.csv")
+  //.read_csv("3.Concat/May2021_put_with_winner.csv")
   .then((df) => {
     // this is the column that I want to analyze
     const col = "sector";
@@ -105,7 +106,8 @@ dfd
     /*
     OUTPUT AS CSV FILE
     */
-    dfOutput.to_csv("7.Sector/sector_put.csv").catch((err) => {
+   //Change to call or put as needed
+    dfOutput.to_csv("7.Sector/sector_call.csv").catch((err) => {
       console.log(err);
     });
   })

@@ -1,7 +1,8 @@
 const dfd = require("danfojs-node");
 
 dfd
-  .read_csv("3.Concat/May2021_call_with_winner.csv")
+  //.read_csv("3.Concat/May2021_call_with_winner.csv")
+  .read_csv("3.Concat/May2021_put_with_winner.csv")
   .then((df) => {
     const emos = [
       "✈️",
@@ -205,7 +206,8 @@ dfd
       /*
       OUTPUT AS CSV FILE
       */
-      dfOutput.to_csv("8.Emoji/emoji_call.csv").catch((err) => {
+     //Change to put or call as necessary
+      dfOutput.to_csv("8.Emoji/emoji_put.csv").catch((err) => {
         console.log(err);
       });
     });
